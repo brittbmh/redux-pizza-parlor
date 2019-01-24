@@ -14,7 +14,7 @@ class Admin extends Component {
     }
 
     getOrders = () => {
-        axios.get('/order').then((response) => {
+        axios.get('/api/order').then((response) => {
             console.log(response.data);
             this.setState({
                 orders: response.data
@@ -38,10 +38,10 @@ class Admin extends Component {
                     <tbody>
                         {this.state.orders.map((order, i) => {
                             return (<tr>
-                                <td>order.customer_name</td>
-                                <td>order.time</td>
-                                <td>order.type</td>
-                                <td>order.total</td>
+                                <td>{order.customer_name}</td>
+                                <td>{order.time}</td>
+                                <td>{order.type}</td>
+                                <td>{order.total}</td>
                             </tr>
                             )
                         })}

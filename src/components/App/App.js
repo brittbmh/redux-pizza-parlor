@@ -28,8 +28,8 @@ class App extends Component {
             <Route exact path="/admin" component={Admin}/>
           </div>
         </Router>
-        <img src="images/pizza_photo.png"/>
-        <p>Pizza is great.</p>
+        {/* <img src="images/pizza_photo.png"/>
+        <p>Pizza is great.</p> */}
       </div>
     );
   }
