@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {HashRouter as Router, Route, Link} from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
+import Checkout from './components/Checkout/Checkout';
 
 class App extends Component {
   render() {
