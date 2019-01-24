@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PizzaItem from '../PizzaItem/PizzaItem';
 
 class Checkout extends Component {
 
@@ -15,6 +16,10 @@ class Checkout extends Component {
         return (
             <div>
                 <h2>Checkout Cart</h2>
+                <PizzaItem key={pizzaArrayIn[i].id}
+                           pizzaId={pizzaArrayIn[i].id}
+                           pizzaName={pizzaArrayIn[i].name}
+                           price={pizzaArrayIn[i].price} />
 
             
             
