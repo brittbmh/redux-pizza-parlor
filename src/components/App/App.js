@@ -24,7 +24,7 @@ class App extends Component {
               <br/>
                 <Link to="/order">Order Form</Link>
             </div>
-            <Route exact path="/" component={PizzaHome}/>
+            {/* <Route exact path="/" component={PizzaHome}/> */}
             <Route exact path="/order" component={OrderForm}/>
             <Route exact path="/checkout" component={Checkout}/>
             <Route exact path="/admin" component={Admin}/>
