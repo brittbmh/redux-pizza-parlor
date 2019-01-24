@@ -16,10 +16,11 @@ class PizzaItem extends Component {
 
      addToCart(){
     
-        const action = {type: 'SEND_CHECKOUT', payload: {name: this.props.pizzaName, price: this.props.price}}
+        let setPayload = {name: this.props.pizzaName, price: this.props.price};
+        const action = {type: 'SEND_CHECKOUT', payload: setPayload}
         this.props.dispatch(action).setState({
             
-        })
+        });
      
 }
      
@@ -53,7 +54,7 @@ class PizzaItem extends Component {
                         </CardContent>
                     </CardActionArea>
                     <CardActions>
-                        <Button onCLick={this.addToCart}>Add to Cart</Button>
+                        <Button onClick={this.addToCart}>Add to Cart</Button>
                     </CardActions>
                 </Card>
             </Grid>
@@ -61,4 +62,4 @@ class PizzaItem extends Component {
     }
 }
 
-export default connect()(pizzaItem);
+export default connect()(PizzaItem);
