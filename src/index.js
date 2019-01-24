@@ -17,9 +17,19 @@ else if(action.type === 'CLEAR_CART'){
 return state
 }
 
+const checkCustomer = (state = [], action) => {
+    if (action.type === 'ADD_NEW_CUSTOMER'){
+        return [...state, action.payload]
+    }
+    return state;
+}
+
+ 
+
 const storeInstance = createStore(
     combineReducers({
-    checkout
+    checkout,
+    checkCustomer
     }),
     applyMiddleware(logger),
 );
