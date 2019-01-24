@@ -21,3 +21,9 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+
+img {
+  opacity: 0.5;
+  filter: alpha(opacity=50); /* For IE8 and earlier */
+}

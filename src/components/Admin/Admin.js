@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-//import { withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import Paper from '@material-ui/core/Paper';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+
+ //Table styling
+ let CustomTableCell = withStyles(theme => ({
+    head: {
+      backgroundColor: theme.palette.common.black,
+      color: theme.palette.common.white,
+    }
+  }))(TableCell);
 
 class Admin extends Component {
     constructor(props) {
@@ -31,6 +39,8 @@ class Admin extends Component {
         })
     }
 
+   
+
 
     render() {
         return (
@@ -39,10 +49,10 @@ class Admin extends Component {
             <Table className="admin-table">
               <TableHead>
                 <TableRow>
-                  <TableCell>Customer Name</TableCell>
-                  <TableCell>Time Order Placed</TableCell>
-                  <TableCell>Type</TableCell>
-                  <TableCell>Cost</TableCell>
+                  <CustomTableCell>Customer Name</CustomTableCell>
+                  <CustomTableCell>Time Order Placed</CustomTableCell>
+                  <CustomTableCell>Type</CustomTableCell>
+                  <CustomTableCell>Cost</CustomTableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
