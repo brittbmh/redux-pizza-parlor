@@ -12,7 +12,7 @@ class OrderForm extends Component {
 
                 <input type="radio"  value="Pick-up" /> <br />
                 <input type="radio"  value="Delivery" /> <br />
-                <input type="submit" value="Submit" />
+                <input type="submit" value="Next" />
 
             </form>
 
