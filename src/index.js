@@ -10,7 +10,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 
 //reducers
 const checkout = ( state = [], action) => {
-    if (action.type === 'SEND_CART') {
+    if (action.type === 'SEND_CHECKOUT') {
         return [...state, action.payload];
     } else if (action.type === 'CLEAR_CART') {
         return [];
