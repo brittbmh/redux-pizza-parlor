@@ -8,18 +8,18 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 
 //reducers
 const checkout = (state = [], action) => {
-if( action.type === 'SEND_CHECKOUT'){
-return[...state,action.payload]
-}
-else if(action.type === 'CLEAR_CART'){
-    return []
-}
-return state
+    if (action.type === 'SEND_CHECKOUT') {
+        return [...state, action.payload]
+    }
+    else if (action.type === 'CLEAR_CART') {
+        return []
+    }
+    return state
 }
 
 const storeInstance = createStore(
     combineReducers({
-    checkout
+        checkout
     }),
     applyMiddleware(logger),
 );

@@ -2,6 +2,25 @@
   text-align: center;
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  
+}
+
+li {
+  float: left;
+  padding: 8px;
+  background-color: rgb(200, 201, 245);
+  border-right: 1px solid #bbb;
+}
+
+li Link {
+  display: block;
+  width: 60px;
+}
+
 .App-intro {
   font-size: large;
 }
