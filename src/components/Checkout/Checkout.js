@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 class Checkout extends Component {
 
+    //checkout function to clear pizza cart
     pizzaCheckout = () => {
         const action = { type: 'CLEAR_CART' }
         this.props.dispatch(action);
@@ -14,7 +15,7 @@ class Checkout extends Component {
         return (
             <div>
                 <h2>Checkout Cart</h2>
-            
+
             
             
             </div>

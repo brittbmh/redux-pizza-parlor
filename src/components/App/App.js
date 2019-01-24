@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {HashRouter as Router, Route, Link} from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
-import Checkout from './components/Checkout/Checkout';
+import Checkout from './../Checkout/Checkout.js';
 import PizzaHome from './../PizzaHome/PizzaHome.js';
 
 
@@ -25,9 +25,9 @@ class App extends Component {
               </li>
             </ul>
             <Route exact path="/" component={PizzaHome}/>
-            {/* <Route exact path="/order" component={OrderForm}/>
+            {/*<Route exact path="/order" component={OrderForm}/> */}
             <Route exact path="/checkout" component={Checkout}/>
-            <Route exact path="/admin" component={Admin}/> */}
+            {/* <Route exact path="/admin" component={Admin}/> */}
           </div>
         </Router>
         <img src="images/pizza_photo.png"/>
