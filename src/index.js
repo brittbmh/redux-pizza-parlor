@@ -14,9 +14,15 @@ const checkout = ( state = pizza, action) => {
         return [...state, action.payload];
     } else if (action.type === 'CLEAR_CART') {
         return [];
+    } else if(action.type === 'REMOVE'){
+        return state.filter(item=> 
+            item.id !== action.payload.id)
+
     }
-    return state;
-}
+
+return state
+};
+
 
 const checkCustomer = (state = [], action) => {
     if (action.type === 'ADD_NEW_CUSTOMER'){

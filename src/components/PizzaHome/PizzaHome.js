@@ -53,6 +53,7 @@ class PizzaHome extends Component {
                                             description={pizzaArrayIn[i].description}
                                             price={pizzaArrayIn[i].price}
                                             imagePath={pizzaArrayIn[i].image_path}
+                                            
                                             />);
         }
     

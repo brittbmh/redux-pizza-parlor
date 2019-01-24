@@ -14,21 +14,68 @@ import Button from '@material-ui/core/Button';
 class PizzaItem extends Component {
     
 
-     addToCart(){
+
+     addToCart=()=>{
+    let newPizza = {name: this.props.pizzaName, price: this.props.price, id: this.props.pizzaId}
+        const action = {type: 'SEND_CHECKOUT', payload: newPizza}
+        this.props.dispatch(action)
+       this.forceUpdate()
+        
+
     
-        let setPayload = {name: this.props.pizzaName, price: this.props.price};
-        const action = {type: 'SEND_CHECKOUT', payload: setPayload}
-        this.props.dispatch(action).setState({
-            
-        });
      
 }
-     
-
+     removeFromCart=()=>{
+         let badPizza = { name: this.props.pizzaName, price: this.props.price, id: this.props.pizzaId }
+         const action = { type: 'REMOVE', payload: badPizza }
+        this.props.dispatch(action)
+       this.forceUpdate()
+    }
 
 
     render() {
-
+        console.log(this.props.pizzaId)
+        console.log(this.props.reduxStore.checkout.map(item=>item.id))
+        if (this.props.pizzaId == this.props.reduxStore.checkout.map(item=>item.id)) { 
+let counter = 0
+counter ++
+console.log(counter)
+            return (
+                <Grid item md={3}>
+                    <Card className="item-card">
+                        <CardActionArea>
+                            <CardMedia
+                                component="img"
+                                alt={this.props.description}
+                                className="item-img"
+                                height="340"
+                                image={this.props.imagePath}
+                                title={this.props.pizzaName}
+                            />
+                            <CardContent>
+                                <Typography gutterBottom variant="h5" component="h2">
+                                    {this.props.pizzaName}
+                                </Typography>
+                                <Typography component="p">
+                                    {this.props.description}
+                                </Typography>
+                                <Typography component="p">
+                                    {this.props.price}
+                                </Typography>
+                            </CardContent>
+                        </CardActionArea>
+                        <CardActions>
+                            
+                            <Button onClick={this.removeFromCart}>Remove From Cart</Button>
+                            
+                        </CardActions>
+                    </Card>
+                </Grid>
+            )}
+        else {
+            let counter = 0
+            counter++
+            console.log(counter)  
         return (
             <Grid item md={3}>
                 <Card className="item-card">
@@ -60,6 +107,9 @@ class PizzaItem extends Component {
             </Grid>
         )
     }
-}
 
-export default connect()(PizzaItem);
+}}
+const mapReduxStoreToProps = (reduxStore) => ({
+    reduxStore: reduxStore
+})
+export default connect(mapReduxStoreToProps)(PizzaItem);
