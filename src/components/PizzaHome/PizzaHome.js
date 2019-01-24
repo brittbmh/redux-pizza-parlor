@@ -15,6 +15,11 @@ class PizzaHome extends Component {
         }
     }
 
+    // load the pizza data from the server
+    componentDidMount = () => {
+        this.getPizzaInfo();
+    }
+
     // Get the pizza information from the pizza table on the database
     getPizzaInfo = () => {
         // send GET request to update the like value for an item clicked
@@ -57,7 +62,6 @@ class PizzaHome extends Component {
     }
 
     render() {
-        this.getPizzaInfo();
         return (
             <Grid container spacing={24}>                
                 {this.displayPizza(this.state.pizzaArray)}

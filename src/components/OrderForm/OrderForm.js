@@ -2,16 +2,89 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
 class OrderForm extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            customerToAdd: {
+                name: '',
+                address: '',
+                city: '',
+                zip: '',
+                type: '',
+
+            }
+        }
+    }
+    // method changes the state as user types into input field
+    nameChange = (event) => {
+        this.setState({
+            customerToAdd: {
+                ...this.state.customerToAdd,
+                name: event.target.value
+            },
+        });
+    }
+    addressChange = (event) => {
+        this.setState({
+            customerToAdd: {
+                ...this.state.customerToAdd,
+                address: event.target.value
+            },
+        });
+    }
+    cityChange = (event) => {
+        this.setState({
+            customerToAdd: {
+                ...this.state.customerToAdd,
+                city: event.target.value
+            },
+        });
+    }
+    zipChange = (event) => {
+        this.setState({
+            customerToAdd: {
+                ...this.state.customerToAdd,
+                zip: event.target.value
+            },
+        });
+    }
+    // on click of delivery or pick-up will set the delivery type in state
+    showType = (event) =>{
+        if( event.target.value === 'Pick-up'){
+            this.setState({
+                customerToAdd: {
+                    ...this.state.customerToAdd,
+                    type: event.target.value
+                },
+            });
+        } else if( event.target.value === 'Delivery'){
+            this.setState({
+                customerToAdd: {
+                    ...this.state.customerToAdd,
+                    type: event.target.value
+                },
+            });
+        }
+    }
+    // addCustomer sends customer information from state and dispatches to reduxStore
+    addCustomer = (event) => {
+        event.preventDefault();
+        const customerInfo = this.state.customerToAdd
+        const action = { type: 'ADD_NEW_CUSTOMER', payload: customerInfo };
+        this.props.dispatch(action);
+    }
     render(){
         return(
-            <form>
-                <input type="text" placeholder="Name" />
-                <input type="text" placeholder="Street Address" />
-                <input type="text" placeholder="City" />
-                <input type="number" placeholder="Zip Code" />
+            //input fields for each customer information item
+            <form onSubmit={this.addCustomer}>
+                <input onChange={this.nameChange}type="text" placeholder="Name" />
+                <input onChange={this.addressChange}type="text" placeholder="Street Address" />
+                <input onChange={this.cityChange}type="text" placeholder="City" />
+                <input onChange={this.zipChange}type="number" placeholder="Zip Code" /> <br />
 
-                <input type="radio"  value="Pick-up" /> <br />
-                <input type="radio"  value="Delivery" /> <br />
+                <input onChange={this.showType} type="radio" name="type" value="Pick-up" /> Pick-up
+                <input onChange={this.showType} type="radio" name="type" value="Delivery" />  Delivery
+                <br />
                 <input type="submit" value="Next" />
 
             </form>

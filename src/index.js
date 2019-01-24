@@ -6,17 +6,17 @@ import logger from 'redux-logger';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 
+
+
 //reducers
-const checkout = (state = [], action) => {
-if( action.type === 'SEND_CHECKOUT'){
-return[...state,action.payload]
-}
-else if(action.type === 'CLEAR_CART'){
-    return []
-}
-else if(action.type === 'REMOVE'){
-    return state.filter(item=> 
-        item.id !== action.payload.id)
+const checkout = ( state = pizza, action) => {
+    if (action.type === 'SEND_CART') {
+        return [...state, action.payload];
+    } else if (action.type === 'CLEAR_CART') {
+        return [];
+    } else if(action.type === 'REMOVE'){
+        return state.filter(item=> 
+            item.id !== action.payload.id)
 
     }
 
@@ -24,9 +24,19 @@ return state
 };
 
 
+const checkCustomer = (state = [], action) => {
+    if (action.type === 'ADD_NEW_CUSTOMER'){
+        return [...state, action.payload]
+    }
+    return state;
+}
+
+ 
+
 const storeInstance = createStore(
     combineReducers({
-    checkout
+    checkout,
+    checkCustomer
     }),
     applyMiddleware(logger),
 );

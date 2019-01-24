@@ -14,12 +14,15 @@ import Button from '@material-ui/core/Button';
 class PizzaItem extends Component {
     
 
+
      addToCart=()=>{
     let newPizza = {name: this.props.pizzaName, price: this.props.price, id: this.props.pizzaId}
         const action = {type: 'SEND_CHECKOUT', payload: newPizza}
         this.props.dispatch(action)
        this.forceUpdate()
         
+
+    
      
 }
      removeFromCart=()=>{
@@ -104,6 +107,7 @@ console.log(counter)
             </Grid>
         )
     }
+
 }}
 const mapReduxStoreToProps = (reduxStore) => ({
     reduxStore: reduxStore
