@@ -5,7 +5,7 @@ import './App.css';
 import Admin from './../Admin/Admin.js';
 import OrderForm from '../OrderForm/OrderForm.js';
 import Checkout from './../Checkout/Checkout';
-import PizzaHome from './../PizzaHome/PizzaHome.js';
+// import PizzaHome from './../PizzaHome/PizzaHome.js';
 
 
 class App extends Component {
@@ -18,22 +18,20 @@ class App extends Component {
         <br/>
         <Router>
           <div>
-            <ul>
-              <li>
+            {/* I changed it from a list to a div of its own to get rid of the list Item dots, TJ */}
+            <div> 
                 <Link to="/">Home</Link>
-              </li>
-              <li>
+              <br/>
                 <Link to="/order">Order Form</Link>
-              </li>
-            </ul>
+            </div>
             <Route exact path="/" component={PizzaHome}/>
             <Route exact path="/order" component={OrderForm}/>
             <Route exact path="/checkout" component={Checkout}/>
             <Route exact path="/admin" component={Admin}/>
           </div>
         </Router>
-        {/* <img src="images/pizza_photo.png"/>
-        <p>Pizza is great.</p> */}
+        <img src="images/pizza_photo.png" alt="Pizza"/>
+        <p>Pizza is great.</p>
       </div>
     );
   }
