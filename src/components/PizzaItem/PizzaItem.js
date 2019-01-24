@@ -12,10 +12,20 @@ import Button from '@material-ui/core/Button';
 
 
 class PizzaItem extends Component {
-addToCart(){
-    const action = {type: 'SEND_CHECKOUT', payload: {name: this.props.pizzaName, price: this.props.price}}
-this.props.dispatch(action)
+    
+
+     addToCart(){
+    
+        const action = {type: 'SEND_CHECKOUT', payload: {name: this.props.pizzaName, price: this.props.price}}
+        this.props.dispatch(action).setState({
+            
+        })
+     
 }
+     
+
+
+
     render() {
 
         return (
@@ -43,7 +53,7 @@ this.props.dispatch(action)
                         </CardContent>
                     </CardActionArea>
                     <CardActions>
-                        <Button onCLick={this.addToCart}>Add to cart</Button>
+                        <Button onCLick={this.addToCart}>Add to Cart</Button>
                     </CardActions>
                 </Card>
             </Grid>

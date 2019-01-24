@@ -19,7 +19,7 @@ return state
 
 const storeInstance = createStore(
     combineReducers({
-checkout()
+    checkout
     }),
     applyMiddleware(logger),
 );
