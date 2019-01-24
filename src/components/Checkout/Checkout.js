@@ -13,14 +13,21 @@ class Checkout extends Component {
 
 
     render() {
+        
+        let checkoutTotal = 0;
+        for (let pizza of this.props.reduxStore.checkout) {
+            checkoutTotal += pizza.price;
+        }
+
         return (
             <div>
                 <h2>Checkout Cart</h2>
-                <PizzaItem key={pizzaArrayIn[i].id}
-                           pizzaId={pizzaArrayIn[i].id}
-                           pizzaName={pizzaArrayIn[i].name}
-                           price={pizzaArrayIn[i].price} />
-
+                {JSON.stringify(this.props.reduxStore.checkout)}
+                {/* <PizzaItem key={this.props.pizzaArrayIn[i].id}
+                           pizzaId={this.props.pizzaArrayIn[i].id}
+                           pizzaName={this.props.pizzaArrayIn[i].name}
+                           price={this.props.pizzaArrayIn[i].price} /> */}
+                <h2>{checkoutTotal}</h2>
             
             
             </div>
