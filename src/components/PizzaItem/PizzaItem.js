@@ -24,13 +24,12 @@ class PizzaItem extends Component {
                             alt={this.props.description}
                             className="item-img"
                             height="340"
-                            image={this.props.image}
-                            title={titleText}
-                            onClick={this.handlePopoverClick}
+                            image={this.props.imagePath}
+                            title={this.props.pizzaName}
                         />
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="h2">
-                                {this.props.likes} <PeopleIcon /> <ThumbUpIcon /> <ArrowUpIcon /> <PhotoIcon />
+                                {this.props.price}
                             </Typography>
                             <Typography component="p">
                                 {this.props.description}
@@ -38,7 +37,7 @@ class PizzaItem extends Component {
                             </CardContent>
                     </CardActionArea>
                     <CardActions>
-                        <Button></Button>
+                        <Button>Add to cart</Button>
                     </CardActions>
                 </Card>
             </Grid>

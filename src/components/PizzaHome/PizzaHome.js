@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import PizzaItem from '../PizzaItem/PizzaItem.js';
 
 // material-ui import statements
 import Grid from '@material-ui/core/Grid';
@@ -40,13 +41,13 @@ class PizzaHome extends Component {
     
         // loop through the array sent and add Jsx and click handlers to the data
         for( let i in pizzaArrayIn ) {
-            // adds the output from GalleryItem.js to the array
-            displayArray.push(<PizzaItem  key={galleryArrayIn[i].id}
-                                            imgId={galleryArrayIn[i].id}
-                                            image= {galleryArrayIn[i].path}
-                                            description={galleryArrayIn[i].description}
-                                            likes={galleryArrayIn[i].likes}
-                                            galleryRefresh={this.props.galleryRefresh}
+            // adds the pizzas to the display
+            displayArray.push(<PizzaItem  key={pizzaArrayIn[i].id}
+                                            pizzaId={pizzaArrayIn[i].id}
+                                            pizzaName={pizzaArrayIn[i].name}
+                                            description={pizzaArrayIn[i].description}
+                                            price={pizzaArrayIn[i].price}
+                                            imagePath={pizzaArrayIn[i].image_path}
                                             />);
         }
     
@@ -55,6 +56,7 @@ class PizzaHome extends Component {
     }
 
     render() {
+        this.getPizzaInfo();
         return (
             <Grid container spacing={24}>                
                 {this.displayPizza(this.state.pizzaArray)}
