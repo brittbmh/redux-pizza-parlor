@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+//import { withStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import Paper from '@material-ui/core/Paper';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
 
 class Admin extends Component {
     constructor(props) {
@@ -27,27 +34,32 @@ class Admin extends Component {
 
     render() {
         return (
-            <div>
-                <table>
-                    <thead>
-                        <th>Customer Name</th>
-                        <th>Time order was placed</th>
-                        <th>Type</th>
-                        <th>Cost</th>
-                    </thead>
-                    <tbody>
-                        {this.state.orders.map((order, i) => {
-                            return (<tr>
-                                <td>{order.customer_name}</td>
-                                <td>{order.time}</td>
-                                <td>{order.type}</td>
-                                <td>{order.total}</td>
-                            </tr>
-                            )
-                        })}
-                    </tbody>
-                </table>
-            </div>
+            // Brought in material UI to style the table. TJ
+            <Paper className="paper">
+            <Table className="admin-table">
+              <TableHead>
+                <TableRow>
+                  <TableCell>Customer Name</TableCell>
+                  <TableCell>Time Order Placed</TableCell>
+                  <TableCell>Type</TableCell>
+                  <TableCell>Cost</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+              {this.state.orders.map((order, i) => {
+                      return(
+                  <TableRow key={i}>
+                    <TableCell>{order.customer_name}</TableCell>
+                    <TableCell>{order.time}</TableCell>
+                    <TableCell>{order.type}</TableCell>
+                    <TableCell>${order.total}</TableCell>
+                  </TableRow> 
+                   )
+                })}                   
+              </TableBody>
+            </Table>
+          </Paper>
+   
         )
     }
 
