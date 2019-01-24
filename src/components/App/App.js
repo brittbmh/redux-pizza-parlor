@@ -3,10 +3,15 @@ import {HashRouter as Router, Route, Link} from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Checkout from './components/Checkout/Checkout';
 =======
 import PizzaHome from './../PizzaHome/PizzaHome.js';
 >>>>>>> 32a55d3547eab02301e3809c67709dad61a60ad6
+=======
+import Checkout from './components/Checkout/Checkout';
+import PizzaHome from './../PizzaHome/PizzaHome.js';
+>>>>>>> master
 
 class App extends Component {
   render() {
