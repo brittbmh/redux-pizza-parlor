@@ -14,7 +14,7 @@ class OrderForm extends Component {
             }
         }
     }
-
+    // method changes the state as user types into input field
     nameChange = (event) => {
         this.setState({
             customerToAdd: {
@@ -43,6 +43,7 @@ class OrderForm extends Component {
             },
         });
     }
+    // addCustomer sends customer information from state and dispatches to reduxStore
     addCustomer = (event) => {
         event.preventDefault();
         const customerInfo = this.state.customerToAdd
