@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PizzaItem from '../PizzaItem/PizzaItem';
+import './Checkout.css';
 
 class Checkout extends Component {
 
@@ -12,24 +13,44 @@ class Checkout extends Component {
     }
 
 
+
+
     render() {
         
         let checkoutTotal = 0;
         for (let pizza of this.props.reduxStore.checkout) {
-            checkoutTotal += pizza.price;
+            checkoutTotal += parseInt(pizza.price);
         }
+
+
+
+
 
         return (
             <div>
                 <h2>Checkout Cart</h2>
+                {/* <OrderForm /> */}
                 {JSON.stringify(this.props.reduxStore.checkout)}
-                {/* <PizzaItem key={this.props.pizzaArrayIn[i].id}
-                           pizzaId={this.props.pizzaArrayIn[i].id}
-                           pizzaName={this.props.pizzaArrayIn[i].name}
-                           price={this.props.pizzaArrayIn[i].price} /> */}
-                <h2>{checkoutTotal}</h2>
-            
-            
+            <table className="checkout-table">
+                <tbody>
+                    <th>Name</th>
+                    <th>Price</th>
+                {this.props.reduxStore.checkout.map((pizza, i) => {
+                    return (
+                        <tr>
+                        <td>{pizza.name}</td><td>{pizza.price}</td>
+                        </tr>
+                    )
+                })}
+                </tbody>
+            </table>
+                {/* <PizzaItem key={this.props.reduxStore.id}
+                           pizzaId={this.props.reduxStore.id}
+                           pizzaName={this.props.reduxStore.name}
+                           price={this.props.reduxStore.price} /> */}
+                <h2 className="total-checkout">Total: {checkoutTotal}</h2> 
+                <button onClick={this.pizzaCheckout} className="checkout-button">Checkout</button>
+                        
             </div>
         );
     }
