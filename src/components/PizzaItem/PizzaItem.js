@@ -36,7 +36,7 @@ class PizzaItem extends Component {
     render() {
         console.log(this.props.pizzaId)
         console.log(this.props.reduxStore.checkout.map(item=>item.id))
-        if (this.props.pizzaId == this.props.reduxStore.checkout.map(item=>item.id)) { 
+        if (this.props.pizzaId === this.props.reduxStore.checkout.map(item=>item.id)) { 
 let counter = 0
 counter ++
 console.log(counter)
