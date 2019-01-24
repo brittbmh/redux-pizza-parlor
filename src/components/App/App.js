@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import {HashRouter as Router, Route, Link} from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
+<<<<<<< HEAD
 import Checkout from './components/Checkout/Checkout';
+=======
+import PizzaHome from './../PizzaHome/PizzaHome.js';
+>>>>>>> 32a55d3547eab02301e3809c67709dad61a60ad6
 
 class App extends Component {
   render() {
@@ -19,13 +23,13 @@ class App extends Component {
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/order">Order Form</Link>
+                {/* <Link to="/order">Order Form</Link> */}
               </li>
             </ul>
             <Route exact path="/" component={PizzaHome}/>
-            <Route exact path="/order" component={OrderForm}/>
+            {/* <Route exact path="/order" component={OrderForm}/>
             <Route exact path="/checkout" component={Checkout}/>
-            <Route exact path="/admin" component={Admin}/>
+            <Route exact path="/admin" component={Admin}/> */}
           </div>
         </Router>
         <img src="images/pizza_photo.png"/>

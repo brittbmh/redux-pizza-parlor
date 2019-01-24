@@ -3,10 +3,21 @@ import { connect } from 'react-redux';
 
 class Checkout extends Component {
 
+    pizzaCheckout = () => {
+        const action = { type: 'CLEAR_CART' }
+        this.props.dispatch(action);
+        // this.props.[NAME].push('/')
+    }
+
 
     render() {
         return (
-            <div>Test Placeholder</div>
+            <div>
+                <h2>Checkout Cart</h2>
+            
+            
+            
+            </div>
         );
     }
 }
