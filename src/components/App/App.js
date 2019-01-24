@@ -4,17 +4,16 @@ import axios from 'axios';
 import './App.css';
 import Admin from './../Admin/Admin.js';
 import OrderForm from '../OrderForm/OrderForm.js';
-import Checkout from './../Checkout/Checkout';
+import Checkout from './../Checkout/Checkout.js';
 import PizzaHome from './../PizzaHome/PizzaHome.js';
+import Header from './../Header/Header.js'
 
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Prime Pizza</h1>
-        </header>
+        <Header />
         <br/>
         <Router>
           <div>
@@ -27,7 +26,7 @@ class App extends Component {
               </li>
             </ul>
             <Route exact path="/" component={PizzaHome}/>
-            <Route exact path="/order" component={OrderForm}/>
+            {/* <Route exact path="/order" component={OrderForm}/> */}
             <Route exact path="/checkout" component={Checkout}/>
             <Route exact path="/admin" component={Admin}/>
           </div>
