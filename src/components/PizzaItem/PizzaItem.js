@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import {connect} from 'react-redux'
 // material-ui import statements
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
@@ -12,6 +12,19 @@ import Button from '@material-ui/core/Button';
 
 
 class PizzaItem extends Component {
+    
+
+     addToCart(){
+    
+        const action = {type: 'SEND_CHECKOUT', payload: {name: this.props.pizzaName, price: this.props.price}}
+        this.props.dispatch(action).setState({
+            
+        })
+     
+}
+     
+
+
 
     render() {
 
@@ -40,7 +53,7 @@ class PizzaItem extends Component {
                         </CardContent>
                     </CardActionArea>
                     <CardActions>
-                        <Button>Add to cart</Button>
+                        <Button onCLick={this.addToCart}>Add to Cart</Button>
                     </CardActions>
                 </Card>
             </Grid>
@@ -48,4 +61,4 @@ class PizzaItem extends Component {
     }
 }
 
-export default PizzaItem;
+export default connect()(pizzaItem);
