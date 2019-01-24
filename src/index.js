@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 
 //reducers
-const checkout = (state = [], action) => {
+const checkout = (state = [{price: 12.99}], action) => {
     if (action.type === 'SEND_CHECKOUT') {
         return [...state, action.payload]
     }

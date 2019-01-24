@@ -2,23 +2,29 @@
   text-align: center;
 }
 
+.linkMenu {
+  background-color: rgb(71, 93, 212);
+  height: 20px;
+  padding: 20px;
+  color: white;
+}
+
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  
 }
 
 li {
   float: left;
   padding: 8px;
-  background-color: rgb(200, 201, 245);
-  border-right: 1px solid #bbb;
+  height: 20px;
 }
 
-li Link {
+a {
   display: block;
-  width: 60px;
+  text-decoration: none;
+  color: white;
 }
 
 .App-intro {
