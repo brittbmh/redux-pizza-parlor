@@ -7,7 +7,7 @@ class Header extends Component {
     render() {
         let totalPrice = 0;
         function addCart(pizza){
-            return totalPrice += pizza.price;
+            return totalPrice += parseFloat(pizza.price);
         }
         const cartTotal = this.props.reduxStore.checkout.map(addCart);
 
