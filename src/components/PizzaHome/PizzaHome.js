@@ -33,7 +33,7 @@ class PizzaHome extends Component {
         });
     } // end getPizzaInfo
 
-    // function to display gallery items on the DOM
+    // function to display pizzas items on the DOM
     displayPizza = (pizzaArrayIn) => {
 
         // array for items to be returned when the function is called

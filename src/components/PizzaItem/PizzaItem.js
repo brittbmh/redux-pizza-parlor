@@ -29,12 +29,15 @@ class PizzaItem extends Component {
                         />
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="h2">
-                                {this.props.price}
+                                {this.props.pizzaName}
                             </Typography>
                             <Typography component="p">
                                 {this.props.description}
                             </Typography>
-                            </CardContent>
+                            <Typography component="p">
+                                {this.props.price}
+                            </Typography>
+                        </CardContent>
                     </CardActionArea>
                     <CardActions>
                         <Button>Add to cart</Button>
