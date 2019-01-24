@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {HashRouter as Router, Route, Link} from 'react-router-dom';
-import axios from 'axios';
+// import axios from 'axios';
 import './App.css';
 import Admin from './../Admin/Admin.js';
 import OrderForm from '../OrderForm/OrderForm.js';

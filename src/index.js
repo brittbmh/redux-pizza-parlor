@@ -6,15 +6,16 @@ import logger from 'redux-logger';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 
+
+
 //reducers
-const checkout = (state = [], action) => {
-if( action.type === 'SEND_CHECKOUT'){
-return[...state,action.payload]
-}
-else if(action.type === 'CLEAR_CART'){
-    return []
-}
-return state
+const checkout = ( state = pizza, action) => {
+    if (action.type === 'SEND_CART') {
+        return [...state, action.payload];
+    } else if (action.type === 'CLEAR_CART') {
+        return [];
+    }
+    return state;
 }
 
 const checkCustomer = (state = [], action) => {
