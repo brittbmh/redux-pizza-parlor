@@ -16,10 +16,11 @@ class PizzaItem extends Component {
 
      addToCart(){
     
-        const action = {type: 'SEND_CHECKOUT', payload: {name: this.props.pizzaName, price: this.props.price}}
+        let setPayload = {name: this.props.pizzaName, price: this.props.price};
+        const action = {type: 'SEND_CHECKOUT', payload: setPayload}
         this.props.dispatch(action).setState({
             
-        })
+        });
      
 }
      
