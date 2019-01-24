@@ -14,8 +14,15 @@ return[...state,action.payload]
 else if(action.type === 'CLEAR_CART'){
     return []
 }
+else if(action.type === 'REMOVE'){
+    return state.filter(item=> 
+        item.id !== action.payload.id)
+
+    }
+
 return state
-}
+};
+
 
 const storeInstance = createStore(
     combineReducers({
