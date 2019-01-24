@@ -6,11 +6,6 @@ import logger from 'redux-logger';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 
-const pizza = [
-    { name: 'Tomato Soup', price: '12.99'},
-    { name: 'Pepperoni', price: '14.99' },
-    { name: 'Bad Date', price: '12.99' },
-];
 
 
 //reducers
