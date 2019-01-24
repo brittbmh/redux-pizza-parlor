@@ -57,10 +57,11 @@ class OrderForm extends Component {
                 <input onChange={this.nameChange}type="text" placeholder="Name" />
                 <input onChange={this.addressChange}type="text" placeholder="Street Address" />
                 <input onChange={this.cityChange}type="text" placeholder="City" />
-                <input onChange={this.zipChange}type="number" placeholder="Zip Code" />
+                <input onChange={this.zipChange}type="number" placeholder="Zip Code" /> <br />
 
-                <input type="radio"  value="Pick-up" /> <br />
-                <input type="radio"  value="Delivery" /> <br />
+                <input type="radio"  name="type" value="Pick-up" />Delivery
+                <input type="radio"  name="type" value="Delivery" /> Pick-up 
+                <br />
                 <input type="submit" value="Next" />
 
             </form>
