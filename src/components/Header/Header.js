@@ -5,16 +5,24 @@ import { connect } from 'react-redux';
 class Header extends Component {
 
     render() {
-        let cartTotal;
-        if (this.props.reduxStore.Reducer === 0) {
-            cartTotal = <br />
-        } else {
-            cartTotal = <p>Cart Total:</p>
+        let totalPrice = 0;
+        function addCart(pizza){
+            return totalPrice += pizza.price;
         }
+        const cartTotal = this.props.reduxStore.checkout.map(addCart);
+
+        let showTotal;
+        if (totalPrice === 0) {
+            showTotal = <br />
+        } else {
+            showTotal = <p>Cart Total: {cartTotal}</p>
+        }
+
+        
         return (
             <header className="App-header">
                 <h1 className="App-title">Prime Pizza</h1>
-                {cartTotal}
+                {showTotal}
             </header>
         )
     }

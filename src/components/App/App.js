@@ -26,7 +26,7 @@ class App extends Component {
               </li>
             </ul>
             <Route exact path="/" component={PizzaHome}/>
-            {/* <Route exact path="/order" component={OrderForm}/> */}
+            <Route exact path="/order" component={OrderForm}/>
             <Route exact path="/checkout" component={Checkout}/>
             <Route exact path="/admin" component={Admin}/>
           </div>

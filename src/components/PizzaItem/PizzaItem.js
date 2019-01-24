@@ -53,7 +53,7 @@ class PizzaItem extends Component {
                         </CardContent>
                     </CardActionArea>
                     <CardActions>
-                        <Button onCLick={this.addToCart}>Add to Cart</Button>
+                        <Button onClick={this.addToCart}>Add to Cart</Button>
                     </CardActions>
                 </Card>
             </Grid>
@@ -61,4 +61,4 @@ class PizzaItem extends Component {
     }
 }
 
-export default connect()(pizzaItem);
+export default connect()(PizzaItem);
