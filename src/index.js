@@ -6,20 +6,37 @@ import logger from 'redux-logger';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 
+
+
 //reducers
-const checkout = (state = [{price: 12.99}], action) => {
-    if (action.type === 'SEND_CHECKOUT') {
+const checkout = ( state = pizza, action) => {
+    if (action.type === 'SEND_CART') {
+        return [...state, action.payload];
+    } else if (action.type === 'CLEAR_CART') {
+        return [];
+    } else if(action.type === 'REMOVE'){
+        return state.filter(item=> 
+            item.id !== action.payload.id)
+
+    }
+
+return state
+};
+
+
+const checkCustomer = (state = [], action) => {
+    if (action.type === 'ADD_NEW_CUSTOMER'){
         return [...state, action.payload]
     }
-    else if (action.type === 'CLEAR_CART') {
-        return []
-    }
-    return state
+    return state;
 }
+
+ 
 
 const storeInstance = createStore(
     combineReducers({
-        checkout
+    checkout,
+    checkCustomer
     }),
     applyMiddleware(logger),
 );
