@@ -9,7 +9,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 
 
 //reducers
-const checkout = ( state = pizza, action) => {
+const checkout = ( state = [], action) => {
     if (action.type === 'SEND_CART') {
         return [...state, action.payload];
     } else if (action.type === 'CLEAR_CART') {

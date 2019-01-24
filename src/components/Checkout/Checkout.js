@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PizzaItem from '../PizzaItem/PizzaItem';
+// import PizzaItem from '../PizzaItem/PizzaItem';
 import './Checkout.css';
 
 class Checkout extends Component {
@@ -35,19 +35,15 @@ class Checkout extends Component {
                 <tbody>
                     <th>Name</th>
                     <th>Price</th>
-                {this.props.reduxStore.checkout.map((pizza, i) => {
+                {this.props.reduxStore.checkout.map((pizza) => {
                     return (
                         <tr>
-                        <td>{pizza.name}</td><td>{pizza.price}</td>
+                            <td>{pizza.name}</td><td>{pizza.price}</td>
                         </tr>
                     )
                 })}
                 </tbody>
             </table>
-                {/* <PizzaItem key={this.props.reduxStore.id}
-                           pizzaId={this.props.reduxStore.id}
-                           pizzaName={this.props.reduxStore.name}
-                           price={this.props.reduxStore.price} /> */}
                 <h2 className="total-checkout">Total: {checkoutTotal}</h2> 
                 <button onClick={this.pizzaCheckout} className="checkout-button">Checkout</button>
                         

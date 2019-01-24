@@ -5,7 +5,7 @@ import './App.css';
 import Admin from './../Admin/Admin.js';
 import OrderForm from '../OrderForm/OrderForm.js';
 import Checkout from './../Checkout/Checkout';
-// import PizzaHome from './../PizzaHome/PizzaHome.js';
+import PizzaHome from './../PizzaHome/PizzaHome.js';
 
 
 class App extends Component {
