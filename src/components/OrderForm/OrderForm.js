@@ -10,6 +10,7 @@ class OrderForm extends Component {
                 address: '',
                 city: '',
                 zip: '',
+                type: '',
 
             }
         }
@@ -18,6 +19,7 @@ class OrderForm extends Component {
     nameChange = (event) => {
         this.setState({
             customerToAdd: {
+                ...this.state.customerToAdd,
                 name: event.target.value
             },
         });
@@ -25,6 +27,7 @@ class OrderForm extends Component {
     addressChange = (event) => {
         this.setState({
             customerToAdd: {
+                ...this.state.customerToAdd,
                 address: event.target.value
             },
         });
@@ -32,6 +35,7 @@ class OrderForm extends Component {
     cityChange = (event) => {
         this.setState({
             customerToAdd: {
+                ...this.state.customerToAdd,
                 city: event.target.value
             },
         });
@@ -39,9 +43,28 @@ class OrderForm extends Component {
     zipChange = (event) => {
         this.setState({
             customerToAdd: {
+                ...this.state.customerToAdd,
                 zip: event.target.value
             },
         });
+    }
+    // on click of delivery or pick-up will set the delivery type in state
+    showType = (event) =>{
+        if( event.target.value === 'Pick-up'){
+            this.setState({
+                customerToAdd: {
+                    ...this.state.customerToAdd,
+                    type: event.target.value
+                },
+            });
+        } else if( event.target.value === 'Delivery'){
+            this.setState({
+                customerToAdd: {
+                    ...this.state.customerToAdd,
+                    type: event.target.value
+                },
+            });
+        }
     }
     // addCustomer sends customer information from state and dispatches to reduxStore
     addCustomer = (event) => {
@@ -53,14 +76,14 @@ class OrderForm extends Component {
     render(){
         return(
             //input fields for each customer information item
-            <form on Submit={this.addCustomer}>
+            <form onSubmit={this.addCustomer}>
                 <input onChange={this.nameChange}type="text" placeholder="Name" />
                 <input onChange={this.addressChange}type="text" placeholder="Street Address" />
                 <input onChange={this.cityChange}type="text" placeholder="City" />
                 <input onChange={this.zipChange}type="number" placeholder="Zip Code" /> <br />
 
-                <input type="radio"  name="type" value="Pick-up" />Delivery
-                <input type="radio"  name="type" value="Delivery" /> Pick-up 
+                <input onChange={this.showType} type="radio" name="type" value="Pick-up" /> Pick-up
+                <input onChange={this.showType} type="radio" name="type" value="Delivery" />  Delivery
                 <br />
                 <input type="submit" value="Next" />
 
