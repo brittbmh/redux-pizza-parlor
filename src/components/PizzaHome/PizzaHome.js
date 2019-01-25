@@ -44,7 +44,8 @@ class PizzaHome extends Component {
         if (this.props.reduxStore.checkout != null) {
             this.props.history.push('/order');
         } else {
-            alert(`You have not selected a pizza!`);            }
+            alert(`You have not selected a pizza!`);
+        } // end if
     } // end sendToOrder
 
     // function to display pizzas items on the DOM
@@ -72,14 +73,16 @@ class PizzaHome extends Component {
 
     render() {
         return (
-            <Grid container spacing={24}>                
-                {this.displayPizza(this.state.pizzaArray)}
+            <div>
+                <Grid container spacing={24}>                
+                    {this.displayPizza(this.state.pizzaArray)}
+                </Grid>
                 <br />
-                <Button variant="contained" color="primary">Checkout</Button>
-                <br />
-                <br />
-                <br />
-            </Grid>
+                <Button variant="contained" color="primary" onClick="sendToOrder">Checkout</Button>
+                    <br />
+                    <br />
+                    <br />
+            </div>
         )
     }
 }
