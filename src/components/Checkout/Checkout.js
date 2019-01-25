@@ -8,11 +8,22 @@ class Checkout extends Component {
 
     //checkout function to clear pizza cart
     pizzaCheckout = () => {
-        const action = { type: 'CLEAR_CART' }
-        this.props.dispatch(action);
         // this.props.[NAME].push('/')
-        axios.post('/api/order', {
-
+        let customer = this.props.reduxStore.checkCustomer;
+            customer.total = 0;
+            customer.pizzas = [{id: 1, quantity: 1}];
+        // const pizza = this.props.reduxStore.checkout;
+        // const total = checkoutTotal;
+        console.log(customer);
+        
+        axios({
+            method: 'POST',
+            url: '/api/order',
+            data: customer
+        }).then((response) => {
+            console.log('AXIOS POST /ORDER', response);
+            // const action = { type: 'CLEAR_CART' }
+            // this.props.dispatch(action);
         })
     }
     
@@ -35,15 +46,16 @@ class Checkout extends Component {
                 <div>
                     <h3>Customer Information</h3>
                     {JSON.stringify(this.props.reduxStore.checkCustomer)}
-                    <div>
+                    <div className="center-me">
                     {this.props.reduxStore.checkCustomer.map((customer) => {
                         return (
-
-                            <span>{customer.name}</span>
-                            <span>{customer.address}</span>
-                            <span>{customer.city}</span>
-                            <span>{customer.zip}</span>
-                            <span>{customer.type}</span>
+                        <ul>
+                            <li>Name: {customer.customer_name}</li>
+                            <li>Address: {customer.street_address}</li>
+                            <li>City: {customer.city}</li>
+                            <li>Zip Code: {customer.zip}</li>
+                            <li>Delivery or Pickup: {customer.type}</li>
+                        </ul>
                         )
                     })}
                     </div>
