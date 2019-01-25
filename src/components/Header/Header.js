@@ -4,25 +4,34 @@ import { connect } from 'react-redux';
 
 class Header extends Component {
 
-    render() {
+    addCart = () => {
+        const order = this.props.reduxStore.checkout
         let totalPrice = 0;
-        function addCart(pizza){
-            return totalPrice += parseFloat(pizza.price);
+        for (let pizza of order){
+            totalPrice += parseFloat(pizza.price)
         }
-        const cartTotal = this.props.reduxStore.checkout.map(addCart);
+        return totalPrice;
+    }
 
+    showTotal = () => {
         let showTotal;
+        let totalPrice = this.addCart();
         if (totalPrice === 0) {
             showTotal = <br />
         } else {
-            showTotal = <p>Cart Total: {cartTotal}</p>
+            showTotal = <p>Cart Total: {totalPrice}</p>
         }
+        return showTotal;
+    }
+
+    render() {
+        
 
         
         return (
             <header className="App-header">
                 <h1 className="App-title">Prime Pizza</h1>
-                {showTotal}
+                {this.showTotal()}
             </header>
         )
     }
