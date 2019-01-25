@@ -1,11 +1,7 @@
-.checkout-table, th, tr, td {
+.checkout-table, th {
     width: 100%;
-    /* margin: 0px; */
-    padding: 10px;
     border: 2px solid black;
     border-collapse: collapse;
-    text-align: left;
-
 }
 
 .checkout-button {
@@ -14,8 +10,4 @@
 
 .total-checkout {
     display: inline-block;
-}
-
-.center-me {
-    display: flex;
 }

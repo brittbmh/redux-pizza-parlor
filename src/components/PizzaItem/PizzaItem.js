@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
-
+import {connect} from 'react-redux'
 // material-ui import statements
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
@@ -35,9 +34,14 @@ class PizzaItem extends Component {
 
 
     render() {
+       let dumbArray = this.props.reduxStore.checkout.map(item => item.id)
         console.log(this.props.pizzaId)
+        console.log(dumbArray)
         console.log(this.props.reduxStore.checkout.map(item=>item.id))
-        if (this.props.pizzaId === this.props.reduxStore.checkout.map(item=>item.id)) { 
+        // console.log(dumbArray)
+        // for(item of dumbArray){
+        if (this.props.pizzaId == dumbArray.filter(item=> item == this.props.pizzaId)
+            ) { 
 let counter = 0
 counter ++
 console.log(counter)

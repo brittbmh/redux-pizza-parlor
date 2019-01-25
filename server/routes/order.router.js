@@ -16,8 +16,6 @@ router.get('/', (req, res) => {
 // POST a new order
 router.post('/', async (req, res) => {
     const client = await pool.connect();
-    console.log('ROUTER POST', req.body);
-    
 
     try {
         const {
@@ -28,7 +26,7 @@ router.post('/', async (req, res) => {
             type,
             total,
             pizzas
-        } = req.body[0];
+        } = req.body;
         await client.query('BEGIN')
         const orderInsertResults = await client.query(`INSERT INTO "orders" ("customer_name", "street_address", "city", "zip", "type", "total")
         VALUES ($1, $2, $3, $4, $5, $6)
