@@ -6,16 +6,23 @@ import logger from 'redux-logger';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 
+
+
 //reducers
-const checkout = (state = [], action) => {
-if( action.type === 'SEND_CHECKOUT'){
-return[...state,action.payload]
-}
-else if(action.type === 'CLEAR_CART'){
-    return []
-}
+const checkout = ( state = [], action) => {
+    if (action.type === 'SEND_CHECKOUT') {
+        return [...state, action.payload];
+    } else if (action.type === 'CLEAR_CART') {
+        return [];
+    } else if(action.type === 'REMOVE'){
+        return state.filter(item=> 
+            item.id !== action.payload.id)
+
+    }
+
 return state
-}
+};
+
 
 const checkCustomer = (state = [], action) => {
     if (action.type === 'ADD_NEW_CUSTOMER'){
