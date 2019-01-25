@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+
 
 class OrderForm extends Component {
     constructor(props){
@@ -72,20 +75,51 @@ class OrderForm extends Component {
         const customerInfo = this.state.customerToAdd
         const action = { type: 'ADD_NEW_CUSTOMER', payload: customerInfo };
         this.props.dispatch(action);
+        this.props.history.push('/checkout');
     }
     render(){
         return(
             //input fields for each customer information item
             <form onSubmit={this.addCustomer}>
-                <input onChange={this.nameChange}type="text" placeholder="Name" />
-                <input onChange={this.addressChange}type="text" placeholder="Street Address" />
-                <input onChange={this.cityChange}type="text" placeholder="City" />
-                <input onChange={this.zipChange}type="number" placeholder="Zip Code" /> <br />
-
-                <input onChange={this.showType} type="radio" name="type" value="Pick-up" /> Pick-up
-                <input onChange={this.showType} type="radio" name="type" value="Delivery" />  Delivery
+                <TextField
+                    required
+                    id="outlined-name"
+                    label="Name"
+                    onChange={this.nameChange}
+                    margin="normal"
+                    variant="outlined"
+                />
+                <TextField
+                    required
+                    id="outlined-address"
+                    label="Address"
+                    onChange={this.addressChange}
+                    margin="normal"
+                    variant="outlined"
+                /><TextField
+                    required
+                    id="outlined-city"
+                    label="City"
+                    onChange={this.cityChange}
+                    margin="normal"
+                    variant="outlined"
+                /><TextField
+                    required
+                    id="outlined-zip"
+                    label="Zip Code"
+                    onChange={this.zipChange}
+                    margin="normal"
+                    variant="outlined"
+                />
                 <br />
-                <input type="submit" value="Next" />
+
+                <input required onChange={this.showType} type="radio" name="type" value="Pick-up" /> Pick-up
+                <input required onChange={this.showType} type="radio" name="type" value="Delivery" />  Delivery
+                <br />
+                <br />
+                <Button type="submit" variant="contained" color="primary" >Next</Button>
+
+
 
             </form>
 

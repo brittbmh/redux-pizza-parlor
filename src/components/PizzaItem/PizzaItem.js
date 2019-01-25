@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
+
 // material-ui import statements
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
