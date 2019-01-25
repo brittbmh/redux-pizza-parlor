@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import PizzaItem from '../PizzaItem/PizzaItem.js';
-
+import PizzaItemA from '../PizzaItem/PizzaItemA.js';
+import PizzaItemB from '../PizzaItem/PizzaItemB.js';
+import { connect } from 'react-redux'
 // material-ui import statements
 import Grid from '@material-ui/core/Grid';
 
@@ -45,21 +46,39 @@ class PizzaHome extends Component {
         let displayArray = [];
     
         // loop through the array sent and add Jsx and click handlers to the data
-        for( let i in pizzaArrayIn ) {
+        for( let i = 0; i < pizzaArrayIn.length; i++) {
             // adds the pizzas to the display
-            displayArray.push(<PizzaItem  key={pizzaArrayIn[i].id}
+            console.log(i)
+            console.log(pizzaArrayIn[i].id)
+            console.log(this.props.reduxStore.checkout.map(item => item.id))
+            if (pizzaArrayIn[i].id == this.props.reduxStore.checkout.map(item => item.id)){
+                displayArray.push(<PizzaItemB  key={pizzaArrayIn[i].id}
                                             pizzaId={pizzaArrayIn[i].id}
                                             pizzaName={pizzaArrayIn[i].name}
                                             description={pizzaArrayIn[i].description}
                                             price={pizzaArrayIn[i].price}
                                             imagePath={pizzaArrayIn[i].image_path}
-                                            
+                                            getPizzaInfo={this.getPizzaInfo}
+                                            displayPizza={this.displayPizza}
+                                            pizzaArrayIn={this.pizzaArrayIn}
                                             />);
         }
+            else {
+                displayArray.push(<PizzaItemA key={pizzaArrayIn[i].id}
+                    pizzaId={pizzaArrayIn[i].id}
+                    pizzaName={pizzaArrayIn[i].name}
+                    description={pizzaArrayIn[i].description}
+                    price={pizzaArrayIn[i].price}
+                    imagePath={pizzaArrayIn[i].image_path}
+                    getPizzaInfo={this.getPizzaInfo}
+                displayPizza={this.displayPizza}
+                pizzaArrayIn={this.pizzaArrayIn}
+                />);}
     
-        return displayArray;
-    
+   
     }
+    return displayArray;
+}
 
     render() {
         return (
@@ -69,5 +88,7 @@ class PizzaHome extends Component {
         )
     }
 }
-
-export default PizzaHome;
+const mapReduxStoreToProps = (reduxStore) => ({
+    reduxStore: reduxStore
+})
+export default connect(mapReduxStoreToProps)(PizzaHome);

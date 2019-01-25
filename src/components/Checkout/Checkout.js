@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PizzaItem from '../PizzaItem/PizzaItem';
+
 import './Checkout.css';
 
 class Checkout extends Component {
