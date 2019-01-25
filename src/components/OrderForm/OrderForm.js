@@ -6,9 +6,9 @@ class OrderForm extends Component {
         super(props);
         this.state = {
             customerToAdd: {
-                name: '',
-                address: '',
-                city: '',
+                customer_name: '',
+                street_address: '',
+                city: '',   
                 zip: '',
                 type: '',
 
@@ -20,7 +20,7 @@ class OrderForm extends Component {
         this.setState({
             customerToAdd: {
                 ...this.state.customerToAdd,
-                name: event.target.value
+                customer_name: event.target.value
             },
         });
     }
@@ -28,7 +28,7 @@ class OrderForm extends Component {
         this.setState({
             customerToAdd: {
                 ...this.state.customerToAdd,
-                address: event.target.value
+                street_address: event.target.value
             },
         });
     }
