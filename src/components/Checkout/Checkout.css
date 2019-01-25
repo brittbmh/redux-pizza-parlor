@@ -1,5 +1,7 @@
-.checkout-table, th {
-    width: 100%;
+.checkout-table, th, tr, td {
+    width: 75%;
+    margin: 0px;
+    padding: 20px;
     border: 2px solid black;
     border-collapse: collapse;
 }
