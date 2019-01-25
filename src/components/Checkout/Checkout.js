@@ -35,7 +35,7 @@ class Checkout extends Component {
                 <div>
                     <h3>Customer Information</h3>
                     {JSON.stringify(this.props.reduxStore.checkCustomer)}
-                    <div>
+                    <div className="center-me">
                     {this.props.reduxStore.checkCustomer.map((customer) => {
                         return (
                         <ul>
