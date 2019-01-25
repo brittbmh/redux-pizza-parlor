@@ -38,12 +38,13 @@ class Checkout extends Component {
                     <div>
                     {this.props.reduxStore.checkCustomer.map((customer) => {
                         return (
-
+                            <div>
                             <span>{customer.name}</span>
                             <span>{customer.address}</span>
                             <span>{customer.city}</span>
                             <span>{customer.zip}</span>
                             <span>{customer.type}</span>
+                            </div>
                         )
                     })}
                     </div>

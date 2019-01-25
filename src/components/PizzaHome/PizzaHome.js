@@ -4,6 +4,7 @@ import PizzaItem from '../PizzaItem/PizzaItem.js';
 
 // material-ui import statements
 import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
 
 class PizzaHome extends Component {
 
@@ -38,6 +39,14 @@ class PizzaHome extends Component {
         });
     } // end getPizzaInfo
 
+    // after a pizza is selected send the person to order page
+    sendToOrder = () => {
+        if (this.props.reduxStore.checkout != null) {
+            this.props.history.push('/order');
+        } else {
+            alert(`You have not selected a pizza!`);            }
+    } // end sendToOrder
+
     // function to display pizzas items on the DOM
     displayPizza = (pizzaArrayIn) => {
 
@@ -65,6 +74,11 @@ class PizzaHome extends Component {
         return (
             <Grid container spacing={24}>                
                 {this.displayPizza(this.state.pizzaArray)}
+                <br />
+                <Button variant="contained" color="primary">Checkout</Button>
+                <br />
+                <br />
+                <br />
             </Grid>
         )
     }
