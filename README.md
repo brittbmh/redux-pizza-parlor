@@ -13,6 +13,7 @@ npm install
 npm run server
 npm run client
 This will show up in your browser automatically as  [http://localhost:3000/]
+````
 
 ## Built with 
 -React
